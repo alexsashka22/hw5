@@ -1,5 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+  $json = '{
+    "firstName":"Иван",
+    "lastName":"Иванов",
+    "address":{
+      "streetAddreess":"Московское ш.",
+      "city":"Ленинград",
+      "postalCode":101101
+    },
+    "phoneNumbers": [
+      "812 123-1234",
+      "916 123-4567"
+    ]
+  }';
+
+$poeple = (json_decode($json, true));
+
+// echo "<pre>";
+// var_dump($poeple);
+?>
+
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
@@ -40,7 +60,7 @@
   <table>
     <thead>
       <tr>
-        <td rowspan="2">#</td>
+        <!-- <td rowspan="2">#</td> -->
         <td rowspan="2">Имя</td>
         <td rowspan="2">Фамилия</td>
         <td colspan="3">Адрес</td>
@@ -50,21 +70,23 @@
         <td>Улица</td>
         <td>Город</td>
         <td>Индекс</td>
-        <td>Мобилный</td>
         <td>Рабочий</td>
+        <td>Мобилный</td>
       </tr>
     </thead>
     <tbody>
+      <!-- <?php foreach ($poeple as $i => $person) { ?> -->
       <tr>
-        <td>1</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <!-- <td><?php echo ++$i; ?></td> -->
+        <td><?php echo $poeple['firstName']; ?></td>
+        <td><?php echo $poeple['lastName']; ?></td>
+        <td><?php echo $poeple['address']['streetAddreess']; ?></td>
+        <td><?php echo $poeple['address']['city']; ?></td>
+        <td><?php echo $poeple['address']['postalCode']; ?></td>
+        <td><?php echo $poeple['phoneNumbers'][0]; ?></td>
+        <td><?php echo $poeple['phoneNumbers'][1]; ?></td>
       </tr>
+    <!-- <?php } ?> -->
     </tbody>
   </table>
 
