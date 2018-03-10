@@ -1,22 +1,32 @@
 <?php
-  $json = '{
-    "firstName":"Иван",
-    "lastName":"Иванов",
-    "address":{
-      "streetAddreess":"Московское ш.",
-      "city":"Ленинград",
-      "postalCode":101101
-    },
-    "phoneNumbers": [
-      "812 123-1234",
-      "916 123-4567"
-    ]
-  }';
+  // $json = '[
+  // {
+  //     "firstName": "Иван",
+  //     "lastName": "Иванов",
+  //     "address": {
+  //        "streetAddress": "Московское ш., 101, кв.101",
+  //        "city": "Ленинград",
+  //        "postalCode": 101101
+  //     },
+  //     "phoneNumbers": [
+  //        "812 123-1234",
+  //        "916 123-4567"
+  //      ]
+  // },
+  // {
+  //    ...
+  // },
+  // {
+  //   ...
+  //  }
+  // ]';
 
+$json = file_get_contents(__DIR__ . '/phonenumbers.json');
+var_dump($json);
 $poeple = (json_decode($json, true));
 
-// echo "<pre>";
-// var_dump($poeple);
+echo "<pre>";
+var_dump($poeple);
 ?>
 
 <html lang="ru">
@@ -60,14 +70,14 @@ $poeple = (json_decode($json, true));
   <table>
     <thead>
       <tr>
-        <!-- <td rowspan="2">#</td> -->
+        <td rowspan="2">#</td>
         <td rowspan="2">Имя</td>
         <td rowspan="2">Фамилия</td>
         <td colspan="3">Адрес</td>
         <td colspan="2">Телефон</td>
       </tr>
       <tr>
-        <td>Улица</td>
+        <td>Улица, дом, кв.</td>
         <td>Город</td>
         <td>Индекс</td>
         <td>Рабочий</td>
@@ -75,18 +85,18 @@ $poeple = (json_decode($json, true));
       </tr>
     </thead>
     <tbody>
-      <!-- <?php foreach ($poeple as $i => $person) { ?> -->
+      <?php foreach ($poeple as $i => $person) { ?>
       <tr>
-        <!-- <td><?php echo ++$i; ?></td> -->
-        <td><?php echo $poeple['firstName']; ?></td>
-        <td><?php echo $poeple['lastName']; ?></td>
-        <td><?php echo $poeple['address']['streetAddreess']; ?></td>
-        <td><?php echo $poeple['address']['city']; ?></td>
-        <td><?php echo $poeple['address']['postalCode']; ?></td>
-        <td><?php echo $poeple['phoneNumbers'][0]; ?></td>
-        <td><?php echo $poeple['phoneNumbers'][1]; ?></td>
+        <td><?php echo ++$i; ?></td>
+        <td><?php echo $person['firstName']; ?></td>
+        <td><?php echo $person['lastName']; ?></td>
+        <td><?php echo $person['address']['streetAddreess']; ?></td>
+        <td><?php echo $person['address']['city']; ?></td>
+        <td><?php echo $person['address']['postalCode']; ?></td>
+        <td><?php echo $person['phoneNumbers'][0]; ?></td>
+        <td><?php echo $person['phoneNumbers'][1]; ?></td>
       </tr>
-    <!-- <?php } ?> -->
+    <?php } ?>
     </tbody>
   </table>
 
