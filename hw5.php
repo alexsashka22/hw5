@@ -21,13 +21,13 @@
   //  }
   // ]';
 
-$json = file_get_contents(__DIR__ . '/phonenumbers.json');
-var_dump($json);
+$json = file_get_contents(__DIR__ . '/phonenambers.json');
+// var_dump($json);
 $poeple = (json_decode($json, true));
 
-echo "<pre>";
-var_dump($poeple);
-?>
+// echo "<pre>";
+// var_dump($poeple);
+// ?>
 
 <html lang="ru">
 
@@ -90,7 +90,7 @@ var_dump($poeple);
         <td><?php echo ++$i; ?></td>
         <td><?php echo $person['firstName']; ?></td>
         <td><?php echo $person['lastName']; ?></td>
-        <td><?php echo $person['address']['streetAddreess']; ?></td>
+        <td><?php echo $person['address']['streetAddress']; ?></td>
         <td><?php echo $person['address']['city']; ?></td>
         <td><?php echo $person['address']['postalCode']; ?></td>
         <td><?php echo $person['phoneNumbers'][0]; ?></td>
