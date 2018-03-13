@@ -13,9 +13,29 @@
      ]
 },
 {
-   ...
+  "firstName": "Пётр",
+  "lastName": "Петров",
+  "address": {
+     "streetAddress": "Питерское ш., 101, кв.101",
+     "city": "Москва",
+     "postalCode": 101101
+  },
+  "phoneNumbers": [
+     "499 123-1234",
+     "926 123-4567"
+   ]
 },
 {
-  ...
+  "firstName": "Сидр",
+  "lastName": "Сидоров",
+  "address": {
+     "streetAddress": "Костромское ш., 101, кв.101",
+     "city": "Иваново",
+     "postalCode": 101101
+  },
+  "phoneNumbers": [
+     "612 123-1234",
+     "977 123-4567"
+   ]
  }
 ]
